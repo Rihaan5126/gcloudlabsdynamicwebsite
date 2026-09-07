@@ -16,7 +16,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rihaan.dev";
+// Falls back when the env var is unset *or* set to an empty string (e.g. an
+// env var added in the Vercel dashboard before a real domain is known).
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://rihaan.dev";
 const title = `${profile.name} · ${profile.headline}`;
 
 export const metadata: Metadata = {
