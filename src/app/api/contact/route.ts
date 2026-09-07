@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { profile } from "@/lib/data";
 
 type ContactPayload = {
   name: string;
@@ -37,23 +39,28 @@ export async function POST(request: Request) {
 
   const { name, email, message } = payload as ContactPayload;
 
-  // TODO: wire up a real email provider, e.g. Resend:
-  //
-  //   import { Resend } from "resend";
-  //   const resend = new Resend(process.env.RESEND_API_KEY);
-  //   await resend.emails.send({
-  //     from: "portfolio@yourdomain.com",
-  //     to: profile.email,
-  //     replyTo: email,
-  //     subject: `New portfolio message from ${name}`,
-  //     text: message,
-  //   });
-  //
-  // Requires a RESEND_API_KEY env var (see .env.local.example) and a
-  // verified sending domain in the Resend dashboard. Until that's wired
-  // up, submissions are only logged server-side so the form is fully
-  // testable end to end.
   console.info("[contact] new submission", { name, email, message });
+
+  if (process.env.RESEND_API_KEY) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    // "onboarding@resend.dev" is Resend's shared sending address — it works
+    // without verifying a custom domain, which is all a personal site
+    // needs. Swap it for something like "portfolio@yourdomain.com" once
+    // you've verified a domain in the Resend dashboard.
+    const { error } = await resend.emails.send({
+      from: "Portfolio Contact Form <onboarding@resend.dev>",
+      to: profile.email,
+      replyTo: email,
+      subject: `New portfolio message from ${name}`,
+      text: `From: ${name} <${email}>\n\n${message}`,
+    });
+
+    if (error) {
+      console.error("[contact] Resend error", error);
+      return NextResponse.json({ error: "Failed to send message." }, { status: 502 });
+    }
+  }
 
   return NextResponse.json({ ok: true });
 }
