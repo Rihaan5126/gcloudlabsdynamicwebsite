@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rihaan.dev";
-const title = `${profile.name} — ${profile.headline}`;
+const title = `${profile.name} · ${profile.headline}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: `%s — ${profile.name}`,
+    template: `%s · ${profile.name}`,
   },
   description: profile.bio,
   keywords: [
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title,
     description: profile.bio,
-    siteName: `${profile.name} — Portfolio`,
+    siteName: `${profile.name}'s Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 // Runs before hydration so the correct theme class is present on <html>
-// before first paint — avoids a light/dark flash on load.
+// before first paint, avoiding a light/dark flash on load.
 const themeInitScript = `
   (function () {
     try {

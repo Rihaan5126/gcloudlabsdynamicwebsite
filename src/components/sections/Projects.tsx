@@ -17,7 +17,7 @@ export function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-5xl px-6 py-24">
       <Reveal>
-        <p className="text-accent font-mono text-sm">{"03 — projects"}</p>
+        <p className="text-accent font-mono text-sm">{"03 / projects"}</p>
       </Reveal>
       <Reveal delay={80}>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">

@@ -1,12 +1,12 @@
 import type { NavLink, Profile, Project, SkillGroup, SocialLink } from "./types";
 
-// Edit the values below to update the site's content — nothing else in the
+// Edit the values below to update the site's content; nothing else in the
 // codebase needs to change. See README.md for the full guide.
 
 export const profile: Profile = {
   name: "Rihaan",
   headline: "EE + CS Student",
-  bio: "Ambitious undergrad who loves software engineering, agentic AI, and building things end to end. I'm happiest solving complex, rigorous problems — from scraping and matching pipelines to LLM-driven automation — and shipping tools people actually use.",
+  bio: "Ambitious undergrad who loves software engineering, agentic AI, and building things end to end. I'm happiest solving complex, rigorous problems, from scraping and matching pipelines to LLM-driven automation, and shipping tools people actually use.",
   location: "Birmingham, UK",
   email: "hashmanirihaan@gmail.com",
 };

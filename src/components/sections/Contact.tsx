@@ -73,7 +73,7 @@ export function Contact() {
     <section id="contact" className="border-border bg-surface/50 border-t py-24">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
-          <p className="text-accent font-mono text-sm">{"04 — contact"}</p>
+          <p className="text-accent font-mono text-sm">{"04 / contact"}</p>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -125,7 +125,7 @@ export function Contact() {
               <p role="status" aria-live="polite" className="font-mono text-sm">
                 {status === "success" && (
                   <span className="text-accent">
-                    Thanks — I&rsquo;ll get back to you soon.
+                    Thanks, I&rsquo;ll get back to you soon.
                   </span>
                 )}
                 {status === "error" && (

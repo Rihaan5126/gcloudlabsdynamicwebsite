@@ -5,7 +5,7 @@ export function About() {
   return (
     <section id="about" className="mx-auto max-w-5xl px-6 py-24">
       <Reveal>
-        <p className="text-accent font-mono text-sm">{"01 — about"}</p>
+        <p className="text-accent font-mono text-sm">{"01 / about"}</p>
       </Reveal>
       <Reveal delay={80}>
         <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">

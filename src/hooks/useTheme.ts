@@ -28,7 +28,7 @@ function getServerSnapshot(): Theme {
 /**
  * Reads/writes the current theme via the DOM class the inline bootstrap
  * script (see layout.tsx) already sets before hydration. Using
- * useSyncExternalStore — rather than an effect + setState — means the
+ * useSyncExternalStore, rather than an effect + setState, means the
  * client's first render matches the server's, so no mount-flag dance is
  * needed to avoid a hydration mismatch.
  */

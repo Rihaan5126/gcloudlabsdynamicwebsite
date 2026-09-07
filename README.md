@@ -1,4 +1,4 @@
-# Rihaan — Portfolio
+# Rihaan's Portfolio
 
 Personal portfolio site, built as a real project rather than a template: a single-page
 site with a dark-first "circuit" visual identity, content-as-data, and a working
@@ -11,7 +11,7 @@ contact form backed by a Next.js route handler.
 - Tailwind CSS v4
 - ESLint (`eslint-config-next`) + Prettier (with `prettier-plugin-tailwindcss`)
 
-No UI framework or animation library beyond React + Tailwind — reveal-on-scroll uses
+No UI framework or animation library beyond React + Tailwind: reveal-on-scroll uses
 `IntersectionObserver`, and the hero's typing effect and theme toggle are small custom
 hooks (`src/hooks/`).
 
@@ -38,12 +38,12 @@ Other scripts:
 
 ## Editing content
 
-All personal content — name, bio, skills, projects, social links, nav labels — lives
+All personal content (name, bio, skills, projects, social links, nav labels) lives
 in one typed file: [`src/lib/data.ts`](src/lib/data.ts). Nothing else needs to change
 to update the site's content; the components just render whatever's exported from
 there. Shapes for each export are defined in [`src/lib/types.ts`](src/lib/types.ts).
 
-To add a project, add an entry to the `projects` array in `data.ts` — the tag filter
+To add a project, add an entry to the `projects` array in `data.ts`; the tag filter
 on the Projects section is derived automatically from whatever tags your projects use
 (`allProjectTags`), so no separate list to keep in sync.
 
@@ -79,8 +79,8 @@ The form in the Contact section validates client-side, then POSTs to
 `/api/contact` ([`src/app/api/contact/route.ts`](src/app/api/contact/route.ts)),
 which re-validates server-side and currently just logs the submission. Wiring
 up real email delivery (e.g. via [Resend](https://resend.com)) is a `TODO` left
-in that file — it's a few lines once you have an API key and a verified sending
-domain; see the comment there for the exact snippet.
+in that file; it's a few lines once you have an API key and a verified sending
+domain, see the comment there for the exact snippet.
 
 `NEXT_PUBLIC_SITE_URL` (used for metadata/OG/sitemap) and `RESEND_API_KEY` are
 documented in [`.env.local.example`](.env.local.example).
