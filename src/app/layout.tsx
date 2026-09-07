@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { profile } from "@/lib/data";
+import { siteUrl } from "@/lib/site";
 import { Navbar } from "@/components/nav/Navbar";
 import { Footer } from "@/components/ui/Footer";
 
@@ -16,9 +17,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Falls back when the env var is unset *or* set to an empty string (e.g. an
-// env var added in the Vercel dashboard before a real domain is known).
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://rihaan.dev";
 const title = `${profile.name} · ${profile.headline}`;
 
 export const metadata: Metadata = {

@@ -1,10 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { allProjectTags, projects } from "@/lib/data";
+import { allProjectTags, projects, socialLinks } from "@/lib/data";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { TagFilter } from "@/components/ui/TagFilter";
 import { Reveal } from "@/components/ui/Reveal";
+import { MoreProjectsCard } from "@/components/ui/MoreProjectsCard";
+
+const githubHref = socialLinks.find((link) => link.icon === "github")?.href;
 
 export function Projects() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -35,19 +38,24 @@ export function Projects() {
         </div>
       </Reveal>
 
-      <ul className="mt-8 grid gap-6 sm:grid-cols-2">
-        {filteredProjects.map((project, index) => (
-          <Reveal as="li" key={project.slug} delay={index * 100}>
-            <ProjectCard project={project} />
-          </Reveal>
-        ))}
-      </ul>
-
       {filteredProjects.length === 0 && (
         <p className="text-muted mt-8 font-mono text-sm">
           No projects match that tag yet.
         </p>
       )}
+
+      <ul className="mt-8 grid grid-cols-1 gap-6 sm:[grid-template-columns:repeat(auto-fit,minmax(320px,1fr))]">
+        {filteredProjects.map((project, index) => (
+          <Reveal as="li" key={project.slug} delay={index * 100}>
+            <ProjectCard project={project} />
+          </Reveal>
+        ))}
+        {githubHref && (
+          <Reveal as="li" delay={filteredProjects.length * 100}>
+            <MoreProjectsCard href={githubHref} />
+          </Reveal>
+        )}
+      </ul>
     </section>
   );
 }

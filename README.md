@@ -82,12 +82,14 @@ up real email delivery (e.g. via [Resend](https://resend.com)) is a `TODO` left
 in that file; it's a few lines once you have an API key and a verified sending
 domain, see the comment there for the exact snippet.
 
-`NEXT_PUBLIC_SITE_URL` (used for metadata/OG/sitemap) and `RESEND_API_KEY` are
-documented in [`.env.local.example`](.env.local.example).
+`RESEND_API_KEY` is documented in [`.env.local.example`](.env.local.example).
+The canonical site URL used in metadata/OG/sitemap
+([`src/lib/site.ts`](src/lib/site.ts)) is auto-detected from Vercel's
+production domain at build time, so no env var is required there unless
+you're on a custom domain and want `NEXT_PUBLIC_SITE_URL` to override it.
 
 ## Deploying
 
-See the deployment steps shared alongside this repo, or in short: push to GitHub,
-import the repo at [vercel.com/new](https://vercel.com/new), and set
-`NEXT_PUBLIC_SITE_URL` to the assigned domain in the project's Environment
-Variables once you know it.
+Push to GitHub, then import the repo at [vercel.com/new](https://vercel.com/new).
+Vercel auto-detects Next.js, no config needed, and the site URL resolves itself
+(see above). Every push to `main` redeploys automatically after that.
