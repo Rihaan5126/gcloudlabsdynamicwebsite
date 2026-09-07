@@ -1,8 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { profile, socialLinks } from "@/lib/data";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { SocialIcon } from "@/components/ui/SocialIcon";
+
+const SpinningApple = dynamic(
+  () => import("@/components/three/SpinningApple").then((mod) => mod.SpinningApple),
+  { ssr: false },
+);
 
 export function Hero() {
   const { output, done } = useTypewriter(profile.headline);
@@ -25,6 +31,10 @@ export function Hero() {
         />
         <div className="animate-drift-slow bg-accent/20 absolute top-10 -left-24 h-72 w-72 rounded-full blur-3xl" />
         <div className="animate-drift-slow-reverse bg-warm/10 absolute top-1/3 right-0 h-80 w-80 rounded-full blur-3xl" />
+      </div>
+
+      <div className="pointer-events-none absolute top-28 right-10 hidden h-56 w-56 lg:block">
+        <SpinningApple />
       </div>
 
       <div className="mx-auto w-full max-w-5xl px-6 py-24">
