@@ -54,6 +54,17 @@ export const projects: Project[] = [
     highlight: "Used it myself to secure a University of Birmingham offer",
     featured: true,
   },
+  {
+    slug: "rig-tracker",
+    title: "RIG Tracker",
+    description:
+      "A local SaaS MVP for authorized Instagram profile research: historical snapshot tracking, media and engagement analytics, and scheduled monitoring with in-app notifications. Ships with a safe fictional demo provider alongside a real Meta Instagram Login integration path.",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Redis", "Recharts"],
+    href: "https://rig-tracker.vercel.app/",
+    repoHref: "https://github.com/Rihaan5126/RIG-Tracker",
+    highlight: "1,830 generated snapshots across 5 demo accounts, zero real scraping",
+    featured: true,
+  },
 ];
 
 export const allProjectTags: string[] = Array.from(

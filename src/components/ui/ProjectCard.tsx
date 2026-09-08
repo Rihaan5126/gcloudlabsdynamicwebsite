@@ -8,6 +8,31 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.title}
         </h3>
         <div className="flex shrink-0 gap-2">
+          {project.href && (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${project.title} live site`}
+              className="focus-ring border-border text-muted hover:border-accent hover:text-accent inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6" />
+                <path d="M15 3h6v6" />
+                <path d="M10 14 21 3" />
+              </svg>
+            </a>
+          )}
           {project.repoHref && (
             <a
               href={project.repoHref}
