@@ -50,6 +50,7 @@ export const projects: Project[] = [
     description:
       "A Playwright-driven scraper covering roughly 70% of Russell Group universities with a ~75% reliable success rate at pulling live Clearing vacancy data. I used it myself during UCAS Clearing to help secure a place at the University of Birmingham.",
     tags: ["Playwright", "TypeScript", "Automation", "Next.js", "Supabase"],
+    href: "https://clearing-app-theta.vercel.app/",
     repoHref: "https://github.com/Rihaan5126/clearing-app",
     highlight: "Used it myself to secure a University of Birmingham offer",
     featured: true,
