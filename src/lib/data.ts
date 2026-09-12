@@ -66,6 +66,18 @@ export const projects: Project[] = [
     highlight: "1,830 generated snapshots across 5 demo accounts, zero real scraping",
     featured: true,
   },
+  {
+    slug: "uob-campus-map",
+    title: "Interactive Campus Map",
+    description:
+      "A 3D digital-twin map of the University of Birmingham's Edgbaston campus: 60 real buildings extruded from OpenStreetMap footprint data, a cinematic drone-style camera, and a dedicated 360° viewer for two bespoke landmark models.",
+    tags: ["Three.js", "TypeScript", "WebGL", "Vite", "Procedural Generation"],
+    href: "https://rob-indol.vercel.app/",
+    repoHref: "https://github.com/Rihaan5126/ROB",
+    highlight:
+      "Every texture is generated procedurally on canvas, nothing downloaded or scraped",
+    featured: true,
+  },
 ];
 
 export const allProjectTags: string[] = Array.from(
